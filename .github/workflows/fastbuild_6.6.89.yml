@@ -369,11 +369,6 @@ jobs:
           git apply -p1 < 001-lz4.patch || true
           patch -p1 < 002-zstd.patch || true
 
-          - name: 添加 HymoFS
-        run: |
-          cd kernel_workspace/common
-          curl -LSs https://raw.githubusercontent.com/ITxiao6666/Unicode_bypass_Fix/refs/heads/main/unicode_bypass_fix_6.12.patch | patch -p1 < unicode_bypass_fix_6.12.patch
-
       - name: 应用 lz4kd 补丁
         if: inputs.lz4kd_enable
         run: |
