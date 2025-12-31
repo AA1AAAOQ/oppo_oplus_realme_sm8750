@@ -369,7 +369,7 @@ jobs:
           cd ./common
           git apply -p1 < 001-lz4.patch || true
           patch -p1 < 002-zstd.patch || true
-          git apply -p1 < unicode_bypass_fix_6.12.patch || true
+          patch -p1 < unicode_bypass_fix_6.12.patch || true
 
       - name: 应用 lz4kd 补丁
         if: inputs.lz4kd_enable
