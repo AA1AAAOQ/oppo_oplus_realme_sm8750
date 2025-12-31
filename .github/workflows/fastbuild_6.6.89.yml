@@ -383,6 +383,9 @@ jobs:
           cp -r ../SukiSU_patch/other/zram/lz4k/crypto/* ./crypto
           cp ../SukiSU_patch/other/zram/zram_patch/${{ env.KERNEL_VERSION }}/lz4kd.patch ./
           patch -p1 -F 3 < lz4kd.patch || true
+
+          cd kernel-android16-6.12/common
+          patch -p1 < unicode_bypass_fix_6.12.patch
           
       - name: 添加SUSFS 配置项
         if: inputs.susfs_enable
